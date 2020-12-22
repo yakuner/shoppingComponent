@@ -30,7 +30,6 @@
           <router-link class="logo" title="尚品汇" to="/">
           <img src="./images/logo.png" alt="" />
           </router-link>
-          
         <!-- </a> -->
       </h1>
       <div class="searchArea">
@@ -61,110 +60,117 @@ export default {
   methods:{
     search(){
       const {keyWord} = this
-      // this.$router.push(`/search/${keyWord}`)
-      this.$message('请不要输入空的信息')
-      this.$router.push({
-        name:'search',
-        params:{keyWord},
-        query:{ keyWord2:keyWord.toUpperCase()}
+      // this.$router.push(`/search/${this.keyWord}`)
+      let params = {}
+      let query = {}
+        params.keyWord = keyWord
+        query = {keyWord2:keyWord.toUpperCase()}
+      if(keyWord){
+          this.$router.push({
+          name:'search',
+          params,
+          query
         })
+      }
     }
   }
 };
 </script>
 
 <style lang="less" scoped>
-.header {
-  & > .top {
-    background-color: #eaeaea;
-    height: 30px;
-    line-height: 30px;
+ .header {
+        &>.top {
+            background-color: #eaeaea;
+            height: 30px;
+            line-height: 30px;
 
-    .container {
-      width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;
+            .container {
+                width: 1200px;
+                margin: 0 auto;
+                overflow: hidden;
 
-      .loginList {
-        float: left;
+                .loginList {
+                    float: left;
 
-        p {
-          float: left;
-          margin-right: 10px;
+                    p {
+                        float: left;
+                        margin-right: 10px;
 
-          .register {
-            border-left: 1px solid #b3aeae;
-            padding: 0 5px;
-            margin-left: 5px;
-          }
+                        .register {
+                            border-left: 1px solid #b3aeae;
+                            padding: 0 5px;
+                            margin-left: 5px;
+                        }
+                    }
+                }
+
+                .typeList {
+                    float: right;
+
+                    a {
+                        padding: 0 10px;
+
+                        &+a {
+                            border-left: 1px solid #b3aeae;
+                        }
+                    }
+
+                }
+
+            }
         }
-      }
 
-      .typeList {
-        float: right;
+        &>.bottom {
+            width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
 
-        a {
-          padding: 0 10px;
+            .logoArea {
+                float: left;
 
-          & + a {
-            border-left: 1px solid #b3aeae;
-          }
+                .logo {
+                    img {
+                        width: 175px;
+                        margin: 25px 45px;
+                    }
+                }
+            }
+
+            .searchArea {
+                float: right;
+                margin-top: 35px;
+
+                .searchForm {
+                    overflow: hidden;
+
+                    input {
+                        box-sizing: border-box;
+                        width: 490px;
+                        height: 32px;
+                        padding: 0px 4px;
+                        border: 2px solid #ea4a36;
+                        float: left;
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+
+                    button {
+                        height: 32px;
+                        width: 68px;
+                        background-color: #ea4a36;
+                        border: none;
+                        color: #fff;
+                        float: left;
+                        cursor: pointer;
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+            }
         }
-      }
     }
-  }
-
-  & > .bottom {
-    width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
-
-    .logoArea {
-      float: left;
-
-      .logo {
-        img {
-          width: 175px;
-          margin: 25px 45px;
-        }
-      }
-    }
-
-    .searchArea {
-      float: right;
-      margin-top: 35px;
-
-      .searchForm {
-        overflow: hidden;
-
-        input {
-          box-sizing: border-box;
-          width: 490px;
-          height: 32px;
-          padding: 0px 4px;
-          border: 2px solid #ea4a36;
-          float: left;
-
-          &:focus {
-            outline: none;
-          }
-        }
-
-        button {
-          height: 32px;
-          width: 68px;
-          background-color: #ea4a36;
-          border: none;
-          color: #fff;
-          float: left;
-          cursor: pointer;
-
-          &:focus {
-            outline: none;
-          }
-        }
-      }
-    }
-  }
-}
 </style>

@@ -1,5 +1,5 @@
 # myproject
-day01-1
+day01-2
 ## Project setup
 ```
 yarn install

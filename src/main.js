@@ -1,12 +1,10 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from '@/App'
 import router from './router'
-import {Message} from 'element-ui';
-Vue.prototype.$message = Message;
-
-Vue.config.productionTip = false
+// 缓存原型上的push函数
 
 new Vue({
-  router,
-  render: h => h(App),
-}).$mount('#app')
+    el:'#app',
+    router,
+    render: h => h(App)
+})

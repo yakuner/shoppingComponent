@@ -1,19 +1,18 @@
-import Home from '../pages/Home'
-import Regisn from '../pages/Regisn'
-import Search from '../pages/Search'
-import Login from '../pages/Login'
+import Home from '@/pages/Home'
+import Search from '@/pages/Search'
+import Reginter from '@/pages/Reginter'
+import Login from '@/pages/Login'
 
 export default [
     {
         path:'/',
-        component:Home
+        component:Home,
+        meta:{
+            isFooterShow:false
+        }
     },
     {
-        path:'/regisn',
-        component:Regisn
-    },
-    {
-        path:'/search/:keyWord?', //问号代表不传或者传一位都可以
+        path:'/search/:keyWord?',
         component:Search,
         name:'search',
         props(route){
@@ -21,10 +20,23 @@ export default [
                 keyWord:route.params.keyWord,
                 keyWord2:route.query.keyWord2
             }
+        },
+        meta:{
+            isFooterShow:false
+        }
+    },
+    {
+        path:'/reginter',
+        component:Reginter,
+        meta:{
+            isFooterShow:true
         }
     },
     {
         path:'/login',
-        component:Login
-    },
+        component:Login,
+        meta:{
+            isFooterShow:true
+        }
+    }
 ]

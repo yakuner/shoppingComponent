@@ -2,7 +2,7 @@
   <div>
     <Header></Header>
     <router-view></router-view>
-    <Footer></Footer>
+    <Footer v-show="!this.$route.meta.isFooterShow"></Footer>
   </div>
 </template>
 
@@ -12,11 +12,12 @@ import Footer from './components/Footer'
 export default {
   name: '',
   components:{
-    Header,Footer
+    Header,
+    Footer
   }
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 
 </style>
